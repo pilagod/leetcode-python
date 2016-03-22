@@ -4,7 +4,7 @@ class Solution(object):
         :type num: int
         :rtype: List[int]
         """
-        
+
         # if num == 0:
         #     return [0]
         #
