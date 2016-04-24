@@ -11,7 +11,7 @@ class Solution(object):
         else:
             N = str(int(N) - lastToOne)
 
-        # create minimum nums table to 10 ** n
+        # create minimum nums table to 10 ** n, n from 0 to 14
         digitsTable = {}
         digitsTable[1] = 1
         digitsTable[10] = 10
