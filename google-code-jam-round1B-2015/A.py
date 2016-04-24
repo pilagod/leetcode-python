@@ -17,6 +17,7 @@ class Solution(object):
         digitsTable[10] = 10
         for i in range(2, 15):
             # e.g. 1099 -> 9901 is more efficient than 1009 -> 9001 -> 9901
+            # most efficient way is adding (9 * floor(i / 2)) to 10 ** (i - 1)
             bestAddedNums = int('9' * int(i / 2))
             digitsTable[10 ** i] = digitsTable[10 ** (i - 1)] + bestAddedNums + \
                                    (10 ** i - int(str(10 ** (i - 1) + bestAddedNums)[::-1])) + 1
@@ -28,7 +29,7 @@ class Solution(object):
         reversedNum = int(N[::-1])
         minCount = reversedNum - digitsMin + lastToOne + (1 if reversedNum != int(N) else 0)
 
-        # traverse all possible, O(len(N))
+        # traverse all possible digits, O(len(N))
         for i in range(digits - 2):
             diff = (10 ** (i + 1) * int(N[digits - 1 - i - 1]))
             # e.g.
