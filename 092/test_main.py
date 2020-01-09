@@ -19,15 +19,15 @@ class Test(unittest.TestCase):
         head = ListNode.from_list([1, 2, 3])
         self.assertListEqual(head.to_list(), [1, 2, 3])
 
-    def reverse(self, values: List[int], m: int, n: int, expected: List[int]) :
+    def test_reverse_list(self):
+        self.assert_reverse_between([1, 2, 3, 4, 5], 1, 1, [1, 2, 3, 4, 5])
+        self.assert_reverse_between([1, 2, 3, 4, 5], 5, 5, [1, 2, 3, 4, 5])
+        self.assert_reverse_between([1, 2, 3, 4, 5], 2, 4, [1, 4, 3, 2, 5])
+        self.assert_reverse_between([1, 2, 3, 4, 5], 1, 3, [3, 2, 1, 4, 5])
+        self.assert_reverse_between([1, 2, 3, 4, 5], 3, 5, [1, 2, 5, 4, 3])
+
+    def assert_reverse_between(self, values: List[int], m: int, n: int, expected: List[int]) :
         head = ListNode.from_list(values)
         result = Solution().reverseBetween(head, m, n)
         self.assertListEqual(result.to_list(), expected)
-
-    def test_reverse_list(self):
-        self.reverse([1, 2, 3, 4, 5], 1, 1, [1, 2, 3, 4, 5])
-        self.reverse([1, 2, 3, 4, 5], 5, 5, [1, 2, 3, 4, 5])
-        self.reverse([1, 2, 3, 4, 5], 2, 4, [1, 4, 3, 2, 5])
-        self.reverse([1, 2, 3, 4, 5], 1, 3, [3, 2, 1, 4, 5])
-        self.reverse([1, 2, 3, 4, 5], 3, 5, [1, 2, 5, 4, 3])
         
