@@ -3,12 +3,13 @@
 #     def __init__(self, x):
 #         self.val = x
 #         self.next = None
+
 from time import sleep
-from typing import Tuple, Union
+from typing import cast, Optional, Tuple, Union
 from list.node import ListNode
 
 class Solution:
-    def reverseKGroup(self, head: ListNode, k: int) -> ListNode:
+    def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
         if k == 0 or head is None:
             return None
         if k == 1 or head.next is None:
@@ -28,7 +29,10 @@ class Solution:
                 cur = next
                 continue
             g_end = cur
-            g_start, g_end = self.reverse(g_start, g_end)
+            g_start, g_end = self.reverse(
+                cast(ListNode, g_start), 
+                cast(ListNode, g_end)
+            )
             if g_start_prev is None:
                 head = g_start
             else:

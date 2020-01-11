@@ -25,7 +25,7 @@ class Test(unittest.TestCase):
 
     def assert_reverse_k_group(self, values: List[int], k: int, expected: List[int]):
         head = ListNode.from_list(values)
-        result: ListNode = Solution().reverseKGroup(head, k)
+        result = Solution().reverseKGroup(head, k)
         if result is None:
             self.assertListEqual([], expected)
         else:
